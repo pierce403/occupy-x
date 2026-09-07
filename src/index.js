@@ -1,9 +1,11 @@
 import { DurableObject } from "cloudflare:workers";
 import candidates from "../data/instance-candidates.json";
+import disabledInstances from "../data/disabled-instances.json";
 import { homepage } from "./page.js";
 
 const WIKI_SOURCE = "https://codeberg.org/mv12star/shitter.wiki/raw/branch/main/Instances.md";
 const FALLBACK_SOURCE = "https://codeberg.org/mv12star/shitter/wiki/Instances";
+const disabledHosts = new Set(disabledInstances.map(({ hostname }) => hostname.toLowerCase()));
 
 function listWorkingOrigins(groups = {}) {
   const entries = Array.isArray(groups.working) ? groups.working : [];
@@ -15,6 +17,7 @@ function listWorkingOrigins(groups = {}) {
       const parsed = new URL(url);
       if (parsed.hostname.endsWith(".onion")) continue;
       if (parsed.protocol !== "https:") continue;
+      if (disabledHosts.has(parsed.hostname.toLowerCase().replace(/\.$/, ""))) continue;
       const origin = parsed.origin;
       if (!seen.has(origin)) {
         seen.add(origin);

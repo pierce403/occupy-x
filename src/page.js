@@ -1,3 +1,5 @@
+import disabledInstances from "../data/disabled-instances.json";
+
 const escape = (value) => String(value).replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
 
 export function homepage(instances, source) {
@@ -33,15 +35,17 @@ code{overflow-wrap:anywhere;padding:.18rem .34rem;border-radius:7px;background:r
 .example{font-size:1.12rem;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .example a{display:inline-block;padding:.44rem .72rem;border-radius:10px;background:linear-gradient(120deg,#8ef8c7,#62c0ff);color:#04110e;text-decoration:none;font-weight:700}
 ul{padding-left:22px}.muted{color:#9ca59f}footer{margin-top:42px;color:#9ca59f;font-size:.9rem}section+p{margin-bottom:0}
+.instance-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.instance-columns section{min-width:0}.instance-columns li{overflow-wrap:anywhere}.instance-columns h2{margin-top:28px}.instance-columns ul{padding-left:40px}.disabled-reason{display:block;font-size:.9rem;color:#9ca59f}@media(max-width:560px){.instance-columns{grid-template-columns:1fr;gap:0}}
 </style></head><body><main>
 <small>A PUBLIC NITTER REDIRECTOR</small><h1>occupy-x</h1>
 <p>Read X profiles and posts through Nitter, an alternative front end. Add a profile or post path to occupy-x.com and we’ll send you to the next public instance in the rotation.</p>
 <section class="panel">
 <p class="example">Try <a href="/elonmusk"><code>occupy-x.com/elonmusk</code></a> and you’ll be routed immediately.</p>
 <p>For a post, use <code>occupy-x.com/username/status/123456789</code>. The path and query parameters travel with you.</p></section>
-<h2>How it works</h2><p>Each link gets a temporary redirect to the next instance. We rotate through ${instances.length} public HTTPS instances; Tor addresses and other redirectors are excluded. This page stays here so you can learn how to use it.</p>
+<h2>How it works</h2><p>Each link gets a temporary redirect to the next instance. We rotate through ${instances.length} public HTTPS instances; Tor addresses, other redirectors, and manually disabled instances are excluded. This page stays here so you can learn how to use it.</p>
 <p class="muted">Instances are listed as working in the <a href="${escape(source.source)}">Shitter community wiki</a>, using our ${escape(source.retrievedOn)} snapshot. We don’t run these instances or continuously check their availability. If one fails, reopen your occupy-x link to try another.</p>
-<h2>In the rotation</h2><ul class="panel">${instances.map((origin) => `<li><a href="${escape(origin)}">${escape(new URL(origin).hostname)}</a></li>`).join("")}</ul>
+<div class="instance-columns"><section aria-labelledby="rotation-heading"><h2 id="rotation-heading">In the rotation</h2><ul class="panel">${instances.map((origin) => `<li><a href="${escape(origin)}">${escape(new URL(origin).hostname)}</a></li>`).join("")}</ul></section>
+<section aria-labelledby="disabled-heading"><h2 id="disabled-heading">Manually disabled</h2><p class="muted">Reported broken and excluded from rotation, even when the wiki lists them as working.</p><ul class="panel">${disabledInstances.map(({ hostname, reason }) => `<li>${escape(hostname)}<span class="disabled-reason">${escape(reason)}</span></li>`).join("") || "<li>No manually disabled instances.</li>"}</ul></section></div>
 <footer><a href="https://github.com/pierce403/occupy-x">Source on GitHub</a> · Independent of X and the instance operators.</footer>
 </main></body></html>`;
 }

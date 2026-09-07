@@ -14,6 +14,11 @@ Tor, other redirectors, rate-limited, and former instances are excluded.
 The worker now keeps the rotation catalog in Durable Object storage and refreshes it on a
 daily cron (`04:05 UTC`) from the Shitter wiki source. Homepage and redirects use that
 latest catalog, so the rotation list updates without redeploy.
+Manual overrides live in [data/disabled-instances.json](data/disabled-instances.json).
+Add a hostname and reason to exclude a broken instance from rotation and display it
+in the homepage’s separate “Manually disabled” column. Overrides apply to the stored
+catalog and future wiki refreshes; remove the entry and redeploy to re-enable it
+if the wiki still lists it as working. Hostname matching also excludes alternate ports.
 Automatic health checks are still not implemented, and a rotation failure returns
 `503` with `Retry-After: 30`.
 
