@@ -9,6 +9,9 @@
     "bindings": [{ "name": "ROUND_ROBIN", "class_name": "RoundRobin" }]
   },
   "migrations": [{ "tag": "v1", "new_sqlite_classes": ["RoundRobin"] }],
+  "triggers": {
+    "crons": ["5 4 * * *"]
+  },
   "routes": [
     { "pattern": "occupy-x.com/*", "zone_name": "occupy-x.com" }
   ],
