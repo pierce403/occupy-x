@@ -1,0 +1,133 @@
+{
+  "source": "https://codeberg.org/mv12star/shitter/wiki/Instances",
+  "sourceRepository": "https://codeberg.org/mv12star/shitter.wiki.git",
+  "sourceCommit": "a0f2137a531092ffddc0698e054f21ea2de80959",
+  "retrievedOn": "2026-09-07",
+  "statusBasis": "Upstream wiki classification only; instances have not been independently probed.",
+  "groups": {
+    "working": [
+      {
+        "url": "https://shitter.thepixora.com",
+        "requiresTor": false
+      },
+      {
+        "url": "https://nitter.kareem.one",
+        "requiresTor": false
+      },
+      {
+        "url": "https://nitter.miningtcup.me",
+        "requiresTor": false
+      },
+      {
+        "url": "https://nitter.meowing.monster",
+        "requiresTor": false
+      },
+      {
+        "url": "https://nitter.xitter.cc",
+        "requiresTor": false
+      },
+      {
+        "url": "https://nitter.jaydenha.uk",
+        "requiresTor": false
+      },
+      {
+        "url": "https://nitter.click",
+        "requiresTor": false
+      },
+      {
+        "url": "https://x.n0g.xyz",
+        "requiresTor": false
+      },
+      {
+        "url": "https://tw.eir-nya.gay",
+        "requiresTor": false
+      },
+      {
+        "url": "http://nitter.dog5267ah4m4f4677r33b2pzq667lwhsqupojioqz4rg6e2q74p3xtyd.onion",
+        "requiresTor": true
+      },
+      {
+        "url": "http://nitter.lesboswza6waq3itqo46rvf5a7dibxih32f2umwg6fpssxj66spmclyd.onion",
+        "requiresTor": true
+      },
+      {
+        "url": "http://dhgjnhkxtgesvcddfwzqm4d4zmyz2x2jud6huweu5iywuvoo7qaqpjid.onion",
+        "requiresTor": true
+      }
+    ],
+    "redirectors": [
+      {
+        "url": "https://nitt.tr",
+        "requiresTor": false
+      },
+      {
+        "url": "https://twit.0r.cx",
+        "requiresTor": false
+      },
+      {
+        "url": "https://xxcancel.com",
+        "requiresTor": false
+      }
+    ],
+    "rate_limited": [
+      {
+        "url": "https://nt.vern.cc",
+        "requiresTor": false
+      },
+      {
+        "url": "https://nitter.fullex.fr",
+        "requiresTor": false
+      },
+      {
+        "url": "https://nitter.anoxinon.de",
+        "requiresTor": false
+      },
+      {
+        "url": "https://nitter6.kabii.moe",
+        "requiresTor": false
+      },
+      {
+        "url": "https://nitter.zebes.info",
+        "requiresTor": false
+      },
+      {
+        "url": "https://nitter.wisq.net",
+        "requiresTor": false
+      },
+      {
+        "url": "https://nitter.teamqq.de",
+        "requiresTor": false
+      },
+      {
+        "url": "https://nitter.freedit.eu",
+        "requiresTor": false
+      }
+    ],
+    "formerly_active": [
+      {
+        "url": "https://xcancel.com",
+        "requiresTor": false
+      },
+      {
+        "url": "https://nitter.poast.org",
+        "requiresTor": false
+      },
+      {
+        "url": "https://nitter.privacyredirect.com",
+        "requiresTor": false
+      },
+      {
+        "url": "https://nitter.tiekoetter.com",
+        "requiresTor": false
+      },
+      {
+        "url": "https://nuku.trabun.org",
+        "requiresTor": false
+      },
+      {
+        "url": "https://nitter.catsarch.com",
+        "requiresTor": false
+      }
+    ]
+  }
+}
