@@ -1,0 +1,15 @@
+{
+  "name": "occupy-x",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A Cloudflare-hosted round robin redirector for active Nitter instances.",
+  "scripts": {
+    "dev": "wrangler dev",
+    "check": "node --check src/index.js && wrangler deploy --dry-run",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.129.0"
+  }
+}
