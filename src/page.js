@@ -3,7 +3,7 @@ const escape = (value) => String(value).replace(/[&<>"']/g, (char) => ({ "&": "&
 export function homepage(instances, source) {
   return `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>occupy-x — nitter redirector</title><meta name="description" content="Open X profiles and posts through a rotating list of public Nitter instances.">
+<title>occupy-x: nitter redirector</title><meta name="description" content="Open X profiles and posts through a rotating list of public Nitter instances.">
 <link rel="icon" href="data:,">
 <style>
 :root{color-scheme:dark;font-family:'Trebuchet MS','Avenir Next','Segoe UI',sans-serif;background:#050d0b;color:#edf9f0}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:
