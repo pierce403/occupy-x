@@ -38,7 +38,7 @@ function classifySection(title = "") {
 }
 
 function cleanCandidateUrl(rawUrl = "") {
-  return rawUrl.trim().replace(/[\])>;\"'`.,:!?}]+$/u, "");
+  return rawUrl.trim().replace(/[\])>;"'`.,:!?}]+$/u, "");
 }
 
 function dedupeByOrigin(list) {
@@ -65,7 +65,7 @@ function parseInstancesMarkdown(markdownText) {
 
   let current = null;
   const sectionPattern = /^#{2,4}\s+(.*)$/;
-  const urlPattern = /\bhttps?:\/\/[^\s)\],\"';:!?.>]+/gi;
+  const urlPattern = /\bhttps?:\/\/[^\s)\],"'<>`]+/gi;
 
   for (const line of markdownText.split(/\r?\n/)) {
     const heading = line.match(sectionPattern);
@@ -135,7 +135,7 @@ export class RoundRobin extends DurableObject {
   }
 
   _ensureCatalog() {
-    const row = this.ctx.storage.sql.exec("SELECT payload FROM catalog WHERE id = 1").one();
+    const row = this.ctx.storage.sql.exec("SELECT payload FROM catalog WHERE id = 1").toArray()[0];
     if (row) return;
     this.ctx.storage.sql.exec(
       "INSERT INTO catalog (id, payload, updated_at) VALUES (1, ?, strftime('%s', 'now'))",
@@ -144,7 +144,7 @@ export class RoundRobin extends DurableObject {
   }
 
   _getCatalog() {
-    const row = this.ctx.storage.sql.exec("SELECT payload FROM catalog WHERE id = 1").one();
+    const row = this.ctx.storage.sql.exec("SELECT payload FROM catalog WHERE id = 1").toArray()[0];
     if (!row || !row.payload) return catalogFromCode();
     try {
       return JSON.parse(row.payload);
@@ -159,6 +159,9 @@ export class RoundRobin extends DurableObject {
 
   async refreshCatalog() {
     const catalog = await loadCatalogFromWiki();
+    if (!listWorkingOrigins(catalog.groups).length) {
+      throw new Error("wiki_has_no_working_instances");
+    }
     const payload = JSON.stringify(catalog);
     this.ctx.storage.sql.exec(
       "INSERT INTO catalog (id, payload, updated_at) VALUES (1, ?, strftime('%s', 'now')) ON CONFLICT(id) DO UPDATE SET payload = excluded.payload, updated_at = excluded.updated_at",
