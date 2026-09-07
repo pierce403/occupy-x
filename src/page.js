@@ -4,6 +4,22 @@ export function homepage(instances, source) {
   return `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>occupy-x: nitter redirector</title><meta name="description" content="Open X profiles and posts through a rotating list of public Nitter instances.">
+<link rel="canonical" href="https://occupy-x.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="occupy-x">
+<meta property="og:title" content="occupy-x: Read X through Nitter">
+<meta property="og:description" content="One link. A rotating list of public Nitter instances. Open X profiles and posts through Nitter, with your path preserved.">
+<meta property="og:url" content="https://occupy-x.com/">
+<meta property="og:image" content="https://occupy-x.com/og-v1.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1730">
+<meta property="og:image:height" content="909">
+<meta property="og:image:alt" content="occupy-x: Read X through Nitter. One link. A rotating list of public Nitter instances.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="occupy-x: Read X through Nitter">
+<meta name="twitter:description" content="One link. A rotating list of public Nitter instances. Open X profiles and posts through Nitter, with your path preserved.">
+<meta name="twitter:image" content="https://occupy-x.com/og-v1.png">
+<meta name="twitter:image:alt" content="occupy-x: Read X through Nitter. One link. A rotating list of public Nitter instances.">
 <link rel="icon" href="data:,">
 <style>
 :root{color-scheme:dark;font-family:'Trebuchet MS','Avenir Next','Segoe UI',sans-serif;background:#050d0b;color:#edf9f0}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:
