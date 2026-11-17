@@ -47,3 +47,9 @@ npm run deploy
 
 Deployment uses Wrangler's authenticated Cloudflare account. Run `npx wrangler login`
 if authentication is needed. Keep credentials out of version control.
+
+## License
+
+Copyright 2026 Dean Pierce.
+
+The original code and documentation authored for this project are licensed under the [Apache License, Version 2.0](LICENSE). Third-party dependencies, quoted source material, data, fonts, media, and other third-party assets retain their respective licenses and rights; this grant does not relicense them.
